@@ -1,9 +1,10 @@
 import axios from 'axios';
 
 
-const getcurrencies = async () =>{
+
+const getcurrencies = async ():Promise<string[]> =>{
     try{
-        const res = await axios.get(`https://api.frankfurter.app/currencies`);
+        const res = await axios.get<{[key:string]:string}>(`https://api.frankfurter.app/currencies`);
        
         const data = (res.data) ;
         console.log(data)
