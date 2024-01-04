@@ -1,12 +1,8 @@
-import {useState, useContext} from 'react'
+
 import useCurrency from '../Hooks/useCurrency'
-import {AppContext} from '../Components/InputBox'
 
 const Currencies = () => {
  
-
-  const [value, setValue] = useState('')
-  const { setBase } = useContext(AppContext);
   const {data, status, error} = useCurrency()
 
     if(status === "loading") return <h1>Loading....</h1>
