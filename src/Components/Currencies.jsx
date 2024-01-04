@@ -1,26 +1,9 @@
 import React from 'react'
-import axios from 'axios'
-import {useQuery} from '@tanstack/react-query'
+import useCurrency from '../Hooks/useCurrency'
 const Currencies = () => {
-    const getcurrencies = async () =>{
-        try{
-            const res = await axios.get(`https://marketdata.tradermade.com/api/v1/live_currencies_list?api_key=Dc3e2Gl4saz-byDpYh9i`);
-           
-            const data = (res.data.available_currencies) ;
-            console.log(data)
-            const keys = Object.keys(data) 
-            console.log(keys)
-            return keys;
-        }
-        catch(err){
-            throw new Error()
-            }
-    }
+  const {data, status, error} = useCurrency()
 
-    const {data, status, error} = useQuery({
-      key: "currency", // unique cache key
-      queryFn: getcurrencies   // function that returns a promise or any value
-    })
+   
     console.log('status:' , status)
     console.log('error:' , error)
     console.log('data:' , data)
@@ -32,7 +15,7 @@ const Currencies = () => {
     <>
    <select>
     {/* map through the array of currency codes and create an option for each one */}
-    {data.map((item)=>(<option>{item}</option>))}
+    {data.map((item)=>(<option>{item[0]}</option>))}
    </select>
 
     </>

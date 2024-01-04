@@ -3,16 +3,17 @@ import axios from 'axios';
 
 const getcurrencies = async () =>{
     try{
-        const res = await axios.get(`https://marketdata.tradermade.com/api/v1/live_currencies_list?api_key=Dc3e2Gl4saz-byDpYh9i`);
-           
-        const data = (res.data.available_currencies) ;
+        const res = await axios.get(`https://api.frankfurter.app/currencies`);
+       
+        const data = (res.data) ;
         console.log(data)
-        const keys = Object.keys(data) 
-        console.log(keys)
-        return keys;
-        }
+        const entries = Object.entries(data)
+       
+        return entries;
+    }
     catch(err){
         throw new Error()
         }
 }
 
+export default getcurrencies;
