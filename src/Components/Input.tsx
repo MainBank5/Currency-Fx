@@ -1,11 +1,13 @@
-import Card from '../Components/Card.jsx'
+import Card from '../Components/Card.tsx'
+import InputBox from '../Components/InputBox.tsx'
 
 
 const Input = () => {
   return (
     <Card >
-        <input type="number" className="w-4/5 h-20"/>
-        <input type="number" className="w-4/5 h-20 mt-20" />
+       <InputBox/>
+       <InputBox/>
+       <button className="bg-blue-500 p-7 w-2/3 h-1 mb-5 rounded-md flex justify-center items-center text-white text-2xl hover:bg-blue-400">Convert</button>
     </Card>
   )
 }
