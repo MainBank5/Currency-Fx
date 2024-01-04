@@ -1,12 +1,12 @@
 import {useContext} from 'react'
-import useCurrency from '../Hooks/useCurrency'
+import useCurrency from '../Hooks/useCurrency.tsx'
 import {AppContext} from './Input.tsx'
 
-const Currencies = () => {
+const QouteCurrency = () => {
  
- const {setBase} = useContext(AppContext);
+ const {setQoute} = useContext(AppContext);
 
-  const handleSelection = (e) => {setBase(e.target.value)}
+  const handleSelection = (e) => {setQoute(e.target.value)}
   const {data, status, error} = useCurrency()
 
     if(status === "loading") return <h1>Loading....</h1>
@@ -26,4 +26,4 @@ const Currencies = () => {
   )
 }
 
-export default Currencies
+export default QouteCurrency;
